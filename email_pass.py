@@ -1,2 +1,2 @@
-email_='shrutikgupta07@gmail.com'
-pass_='mjyr pfko lvcb htcm'
+email_='DUMMY_EMAIL'
+pass_='DUMMY_CODE'
