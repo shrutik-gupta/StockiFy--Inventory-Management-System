@@ -9,7 +9,7 @@ class employeeClass:
         self.root=root
         self.root.geometry("1250x600+260+140")
         self.root.title("Inventory Management System | Developed by SKAD")
-        self.root.config(bg="white")
+        self.root.config(bg="lightyellow")
         self.root.focus_force()
         
         style = ttk.Style()
@@ -30,15 +30,15 @@ class employeeClass:
         self.var_address=StringVar()
 
         #search frame
-        SearchFrame=LabelFrame(self.root,text="Serach Employee",font=('goudy old style',12,'bold'),bd=2,relief=RIDGE,bg="white")
-        SearchFrame.place(x=305,y=20,width=640,height=70)
+        SearchFrame=LabelFrame(self.root,text="Serach Employee",font=('goudy old style',12,'bold'),bd=2,relief=RIDGE,bg="lightyellow")
+        SearchFrame.place(x=50,y=20,width=640,height=70)
 
         #options
         cmb_serach=ttk.Combobox(SearchFrame,textvariable=self.var_searchby,values=('Select','Email','Name','Contact'),cursor='hand2',state='readonly',justify=CENTER,font=('goudy old style',15))
         cmb_serach.place(x=10,y=10,width=200,height=30)
         cmb_serach.current(0)
 
-        txt_search=Entry(SearchFrame,textvariable=self.var_serachText,font=('goudy old style',15),bg='lightyellow').place(x=220,y=10,width=200,height=30)
+        txt_search=Entry(SearchFrame,textvariable=self.var_serachText,font=('goudy old style',15),bg='white').place(x=220,y=10,width=200,height=30)
         btn_search=Button(SearchFrame,text='Search',command=self.serach,font=('goudy old style',15),bg='#4caf50',fg='white',cursor='hand2').place(x=430,y=10,width=200,height=30)
 
         #title
@@ -47,48 +47,48 @@ class employeeClass:
         #content
 
         #row1
-        lbl_empid=Label(self.root,text='Emp ID',font=('goudy old style',15),bg='white').place(x=50,y=150,width=100,height=30)
-        lbl_gender=Label(self.root,text='Gender',font=('goudy old style',15),bg='white').place(x=425,y=150,width=100,height=30)
-        lbl_contact=Label(self.root,text='Contact',font=('goudy old style',15),bg='white').place(x=800,y=150,width=100,height=30)
+        lbl_empid=Label(self.root,text='Emp ID',font=('goudy old style',15),bg='lightyellow').place(x=50,y=150,width=100,height=30)
+        lbl_gender=Label(self.root,text='Gender',font=('goudy old style',15),bg='lightyellow').place(x=425,y=150,width=100,height=30)
+        lbl_contact=Label(self.root,text='Contact',font=('goudy old style',15),bg='lightyellow').place(x=800,y=150,width=100,height=30)
 
-        txt_empid=Entry(self.root,textvariable=self.var_emp_id,font=('goudy old style',15),bg='lightyellow').place(x=160,y=150,width=220,height=30)
+        txt_empid=Entry(self.root,textvariable=self.var_emp_id,font=('goudy old style',15),bg='white').place(x=160,y=150,width=220,height=30)
         cmb_gender=ttk.Combobox(self.root,textvariable=self.var_gender,values=('Select','Male','Female','Other'),cursor='hand2',state='readonly',justify=CENTER,font=('goudy old style',15))
         cmb_gender.place(x=535,y=150,width=220,height=30)
         cmb_gender.current(0)
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=('goudy old style',15),bg='lightyellow').place(x=910,y=150,width=220,height=30)
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=('goudy old style',15),bg='white').place(x=910,y=150,width=220,height=30)
 
         #row2
-        lbl_name=Label(self.root,text='Name',font=('goudy old style',15),bg='white').place(x=50,y=200,width=100,height=30)
-        lbl_dob=Label(self.root,text='D.O.B.',font=('goudy old style',15),bg='white').place(x=425,y=200,width=100,height=30)
-        lbl_doj=Label(self.root,text='D.O.J.',font=('goudy old style',15),bg='white').place(x=800,y=200,width=100,height=30)
+        lbl_name=Label(self.root,text='Name',font=('goudy old style',15),bg='lightyellow').place(x=50,y=200,width=100,height=30)
+        lbl_dob=Label(self.root,text='D.O.B.',font=('goudy old style',15),bg='lightyellow').place(x=425,y=200,width=100,height=30)
+        lbl_doj=Label(self.root,text='D.O.J.',font=('goudy old style',15),bg='lightyellow').place(x=800,y=200,width=100,height=30)
 
-        txt_name=Entry(self.root,textvariable=self.var_name,font=('goudy old style',15),bg='lightyellow').place(x=160,y=200,width=220,height=30)
-        txt_dob=DateEntry(self.root,textvariable=self.var_dob,state='readonly',font=('goudy old style',15),bg='lightyellow',date_pattern='dd-mm-yyyy').place(x=535,y=200,width=220,height=30)
-        txt_doj=DateEntry(self.root,textvariable=self.var_doj,state='readonly',font=('goudy old style',15),bg='lightyellow',date_pattern='dd-mm-yyyy').place(x=910,y=200,width=220,height=30)
+        txt_name=Entry(self.root,textvariable=self.var_name,font=('goudy old style',15),bg='white').place(x=160,y=200,width=220,height=30)
+        txt_dob=DateEntry(self.root,textvariable=self.var_dob,state='readonly',font=('goudy old style',15),bg='white',date_pattern='dd-mm-yyyy').place(x=535,y=200,width=220,height=30)
+        txt_doj=DateEntry(self.root,textvariable=self.var_doj,state='readonly',font=('goudy old style',15),bg='white',date_pattern='dd-mm-yyyy').place(x=910,y=200,width=220,height=30)
 
         #row3
-        lbl_email=Label(self.root,text='Email',font=('goudy old style',15),bg='white').place(x=50,y=250,width=100,height=30)
-        lbl_pass=Label(self.root,text='Password',font=('goudy old style',15),bg='white').place(x=425,y=250,width=100,height=30)
-        lbl_utype=Label(self.root,text='User type',font=('goudy old style',15),bg='white').place(x=800,y=250,width=100,height=30)
+        lbl_email=Label(self.root,text='Email',font=('goudy old style',15),bg='lightyellow').place(x=50,y=250,width=100,height=30)
+        lbl_pass=Label(self.root,text='Password',font=('goudy old style',15),bg='lightyellow').place(x=425,y=250,width=100,height=30)
+        lbl_utype=Label(self.root,text='User type',font=('goudy old style',15),bg='lightyellow').place(x=425,y=350,width=100,height=30)
 
-        txt_email=Entry(self.root,textvariable=self.var_email,font=('goudy old style',15),bg='lightyellow').place(x=160,y=250,width=220,height=30)
-        txt_pass=Entry(self.root,textvariable=self.var_pass,font=('goudy old style',15),bg='lightyellow').place(x=535,y=250,width=220,height=30)
+        txt_email=Entry(self.root,textvariable=self.var_email,font=('goudy old style',15),bg='white').place(x=160,y=250,width=220,height=30)
+        txt_pass=Entry(self.root,textvariable=self.var_pass,font=('goudy old style',15),bg='white').place(x=535,y=250,width=220,height=30)
         cmb_utype=ttk.Combobox(self.root,textvariable=self.var_utype,values=('Admin','Employee'),cursor='hand2',state='readonly',justify=CENTER,font=('goudy old style',15))
-        cmb_utype.place(x=910,y=250,width=220,height=30)
+        cmb_utype.place(x=535,y=350,width=220,height=30)
         cmb_utype.current(0)
 
         #row4
-        lbl_address=Label(self.root,text='Address',font=('goudy old style',15),bg='white').place(x=50,y=300,width=100,height=30)
-        lbl_salary=Label(self.root,text='Salary',font=('goudy old style',15),bg='white').place(x=425,y=300,width=100,height=30)
+        lbl_address=Label(self.root,text='Address',font=('goudy old style',15),bg='lightyellow').place(x=50,y=300,width=100,height=30)
+        lbl_salary=Label(self.root,text='Salary',font=('goudy old style',15),bg='lightyellow').place(x=425,y=300,width=100,height=30)
 
-        self.txt_address=Text(self.root,font=('goudy old style',15),bg='lightyellow')
+        self.txt_address=Text(self.root,font=('goudy old style',15),bg='white')
         self.txt_address.place(x=160,y=300,width=220,height=90)
-        txt_salary=Entry(self.root,textvariable=self.var_salary,font=('goudy old style',15),bg='lightyellow').place(x=535,y=300,width=220,height=30)
+        txt_salary=Entry(self.root,textvariable=self.var_salary,font=('goudy old style',15),bg='white').place(x=535,y=300,width=220,height=30)
 
-        btn_save=Button(self.root,text='Save',command=self.add,font=('goudy old style',15),bg='blue',fg='white',cursor='hand2').place(x=800,y=300,width=200,height=30)
-        btn_update=Button(self.root,text='Update',command=self.update,font=('goudy old style',15),bg='green',fg='white',cursor='hand2').place(x=1010,y=300,width=200,height=30)
-        btn_delete=Button(self.root,text='Delete',command=self.delete,font=('goudy old style',15),bg='red',fg='white',cursor='hand2').place(x=800,y=340,width=200,height=30)
-        btn_clear=Button(self.root,text='Clear',command=self.clear,font=('goudy old style',15),bg='grey',fg='white',cursor='hand2').place(x=1010,y=340,width=200,height=30)
+        btn_save=Button(self.root,text='Save',command=self.add,font=('goudy old style',15),bg='blue',fg='white',cursor='hand2').place(x=800,y=240,width=200,height=30)
+        btn_update=Button(self.root,text='Update',command=self.update,font=('goudy old style',15),bg='green',fg='white',cursor='hand2').place(x=800,y=275,width=200,height=30)
+        btn_delete=Button(self.root,text='Delete',command=self.delete,font=('goudy old style',15),bg='red',fg='white',cursor='hand2').place(x=800,y=310,width=200,height=30)
+        btn_clear=Button(self.root,text='Clear',command=self.clear,font=('goudy old style',15),bg='grey',fg='white',cursor='hand2').place(x=800,y=345,width=200,height=30)
 
         #view table
         emp_frame=Frame(self.root,bd=3,relief=RIDGE)

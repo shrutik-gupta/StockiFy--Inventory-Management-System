@@ -7,7 +7,7 @@ class supplierClass:
         self.root=root
         self.root.geometry("1250x600+260+140")
         self.root.title("Inventory Management System | Developed by SKAD")
-        self.root.config(bg="white")
+        self.root.config(bg="lightyellow")
         self.root.focus_force()
 
         style = ttk.Style()
@@ -26,10 +26,10 @@ class supplierClass:
         
 
         #options
-        lbl_serach=Label(self.root,text='Search by Invoice No :',bg='white',cursor='hand2',font=('goudy old style',15))
+        lbl_serach=Label(self.root,text='Search by Invoice No :',bg='lightyellow',cursor='hand2',font=('goudy old style',15))
         lbl_serach.place(x=500,y=100,width=210,height=30)
 
-        txt_search=Entry(self.root,textvariable=self.var_serachText,font=('goudy old style',15),bg='lightyellow').place(x=720,y=100,width=210,height=30)
+        txt_search=Entry(self.root,textvariable=self.var_serachText,font=('goudy old style',15),bg='white').place(x=720,y=100,width=210,height=30)
         btn_search=Button(self.root,text='Search',command=self.serach,font=('goudy old style',15),bg='#4caf50',fg='white',cursor='hand2').place(x=940,y=100,width=210,height=30)
 
         #title
@@ -38,24 +38,24 @@ class supplierClass:
         #content
 
         #row1
-        lbl_sup_invoice=Label(self.root,text='Invoice No',font=('goudy old style',15),bg='white').place(x=50,y=75,width=100,height=40)
-        txt_sup_invoice=Entry(self.root,textvariable=self.var_sup_invoice,font=('goudy old style',15),bg='lightyellow').place(x=160,y=75,width=300,height=40)
+        lbl_sup_invoice=Label(self.root,text='Invoice No',font=('goudy old style',15),bg='lightyellow').place(x=50,y=75,width=100,height=40)
+        txt_sup_invoice=Entry(self.root,textvariable=self.var_sup_invoice,font=('goudy old style',15),bg='white').place(x=160,y=75,width=300,height=40)
         
         #row2
-        lbl_sname=Label(self.root,text='Name',font=('goudy old style',15),bg='white').place(x=50,y=125,width=100,height=40)
-        txt_sname=Entry(self.root,textvariable=self.var_sname,font=('goudy old style',15),bg='lightyellow').place(x=160,y=125,width=300,height=40)
+        lbl_sname=Label(self.root,text='Name',font=('goudy old style',15),bg='lightyellow').place(x=50,y=125,width=100,height=40)
+        txt_sname=Entry(self.root,textvariable=self.var_sname,font=('goudy old style',15),bg='white').place(x=160,y=125,width=300,height=40)
 
         #row3
-        lbl_contact=Label(self.root,text='Contact',font=('goudy old style',15),bg='white').place(x=50,y=175,width=100,height=40)
-        txt_contact=Entry(self.root,textvariable=self.var_contact,font=('goudy old style',15),bg='lightyellow').place(x=160,y=175,width=300,height=40)
+        lbl_contact=Label(self.root,text='Contact',font=('goudy old style',15),bg='lightyellow').place(x=50,y=175,width=100,height=40)
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=('goudy old style',15),bg='white').place(x=160,y=175,width=300,height=40)
         
         #row4
-        lbl_email=Label(self.root,text='Email',font=('goudy old style',15),bg='white').place(x=50,y=225,width=100,height=40)
-        txt_email=Entry(self.root,textvariable=self.var_email,font=('goudy old style',15),bg='lightyellow').place(x=160,y=225,width=300,height=40)
+        lbl_email=Label(self.root,text='Email',font=('goudy old style',15),bg='lightyellow').place(x=50,y=225,width=100,height=40)
+        txt_email=Entry(self.root,textvariable=self.var_email,font=('goudy old style',15),bg='white').place(x=160,y=225,width=300,height=40)
         
         #row5
-        lbl_desc=Label(self.root,text='Description',font=('goudy old style',15),bg='white').place(x=50,y=275,width=100,height=40)
-        self.txt_desc=Text(self.root,font=('goudy old style',15),bg='lightyellow')
+        lbl_desc=Label(self.root,text='Description',font=('goudy old style',15),bg='lightyellow').place(x=50,y=275,width=100,height=40)
+        self.txt_desc=Text(self.root,font=('goudy old style',15),bg='white')
         self.txt_desc.place(x=160,y=275,width=300,height=150)
         
         btn_save=Button(self.root,text='Save',command=self.add,font=('goudy old style',15),bg='blue',fg='white',cursor='hand2').place(x=50,y=440,width=200,height=40)
@@ -115,6 +115,9 @@ class supplierClass:
                     messagebox.showinfo('Success',"Supplier details added successfully",parent=self.root)
         except Exception as ex:
             messagebox.showerror('Error',f'Error due to: {str(ex)}',parent=self.root)
+        finally:
+            if con:
+                con.close()
         self.show()
 
     def show(self):

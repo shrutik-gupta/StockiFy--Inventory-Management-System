@@ -7,7 +7,7 @@ class categoryClass:
         self.root=root
         self.root.geometry("1250x600+260+140")
         self.root.title("Inventory Management System | Developed by SKAD")
-        self.root.config(bg="white")
+        self.root.config(bg="lightyellow")
         self.root.focus_force()
 
         self.var_cat=StringVar()
@@ -15,19 +15,19 @@ class categoryClass:
         self.var_id=StringVar()
 
         #title
-        lbl_title=Label(self.root,text='Mangage Product Category',font=('goudy old style',30,'bold'),bg='#184a45',fg='white',bd=3,relief=RIDGE).pack(side=TOP,fill=X,padx=15,pady=20)
+        lbl_title=Label(self.root,text='Manage Product Category',font=('goudy old style',30,'bold'),bg='#0A6847',fg='white',bd=3,relief=RIDGE).pack(side=TOP,fill=X,padx=15,pady=20)
         
-        lbl_name=Label(self.root,text='Category Name',font=('goudy old style',15,'bold'),bg='white').place(x=50,y=160,height=50,width=200)
-        lbl_name_text=Entry(self.root,textvariable=self.var_name,font=('goudy old style',15,'bold'),bg='lightyellow').place(x=260,y=160,height=50,width=340)
+        lbl_name=Label(self.root,text='Category Name',font=('goudy old style',15,'bold'),bg='lightyellow').place(x=50,y=160,height=50,width=200)
+        lbl_name_text=Entry(self.root,textvariable=self.var_name,font=('goudy old style',15,'bold'),bg='white').place(x=260,y=160,height=50,width=340)
 
-        lbl_id=Label(self.root,text='Category ID',font=('goudy old style',15,'bold'),bg='white').place(x=50,y=100,height=50,width=200)
-        lbl_id_text=Entry(self.root,textvariable=self.var_id,font=('goudy old style',15,'bold'),bg='lightyellow').place(x=260,y=100,height=50,width=340)
+        lbl_id=Label(self.root,text='Category ID',font=('goudy old style',15,'bold'),bg='lightyellow').place(x=50,y=100,height=50,width=200)
+        lbl_id_text=Entry(self.root,textvariable=self.var_id,font=('goudy old style',15,'bold'),bg='white').place(x=260,y=100,height=50,width=340)
 
-        btn_add=Button(self.root,text="ADD",command=self.add,font=('goudy old style',15,'bold'),bg='green',fg='white',cursor='hand2').place(x=330,y=220,width=270,height=50)
+        btn_add=Button(self.root,text="ADD",command=self.add,font=('goudy old style',15,'bold'),bg='#0984e3',fg='white',cursor='hand2').place(x=330,y=220,width=270,height=50)
         btn_delete=Button(self.root,text="DELETE",command=self.delete,font=('goudy old style',15,'bold'),bg='red',fg='white',cursor='hand2').place(x=50,y=220,width=270,height=50)
 
         cat_frame=Frame(self.root,bd=3,relief=RIDGE)
-        cat_frame.place(x=50,y=280,width=550,height=300)
+        cat_frame.place(x=630,y=80,width=600,height=500)
         scrolly=Scrollbar(cat_frame,orient=VERTICAL)
         scrollx=Scrollbar(cat_frame,orient=HORIZONTAL)
         self.categoryTable=ttk.Treeview(cat_frame,columns=('cid','name'),yscrollcommand=scrolly.set,xscrollcommand=scrollx.set)
@@ -45,10 +45,10 @@ class categoryClass:
         self.categoryTable.bind('<ButtonRelease-1>',self.get_data)
 
         self.image=Image.open("Images/cat.jpg")
-        self.image=self.image.resize((550,400),Image.AFFINE)
+        self.image=self.image.resize((500,300),Image.AFFINE)
         self.image=ImageTk.PhotoImage(self.image)
         self.lbl_image=Label(self.root,image=self.image)
-        self.lbl_image.place(x=650,y=150)
+        self.lbl_image.place(x=50,y=280)
 
         self.show()
 
@@ -90,13 +90,14 @@ class categoryClass:
         except Exception as ex:
             messagebox.showerror('Error',f'Error due to: {str(ex)}',parent=self.root)
 
-    def get_data(self,ev):
-        f=self.categoryTable.focus()
-        content= (self.categoryTable.item(f))
-        row=content['values']
-        #print(row)
-        self.var_id.set(row[0])
-        self.var_name.set(row[1])
+    def get_data(self, ev):
+        f = self.categoryTable.focus()
+        content = self.categoryTable.item(f)
+        row = content['values']
+        if row:  # Check if row is not empty
+            self.var_id.set(row[0])
+            self.var_name.set(row[1])
+
         
     def delete(self):
         con=sqlite3.connect(database=r'IMS.db')

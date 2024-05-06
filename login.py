@@ -78,7 +78,7 @@ class Login_system:
         cur=con.cursor()
         try:
             if self.var_employee_id.get()=='' or self.var_password.get()=='':
-                messagebox.showerror('Error','All ifelds must be filled',parent=self.root)
+                messagebox.showerror('Error','All fields must be filled',parent=self.root)
             else:
                 cur.execute('select utype from employee where eid=? AND pass=?',(self.var_employee_id.get(),self.var_password.get()))
                 user=cur.fetchone()

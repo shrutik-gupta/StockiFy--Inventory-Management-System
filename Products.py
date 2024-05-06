@@ -28,33 +28,33 @@ class productClass:
         self.fetch_cat_sup()
 
         #Product Frame
-        productFrame=Frame(self.root,bd=2.5,relief=RIDGE,bg='white')
+        productFrame=Frame(self.root,bd=2.5,relief=RIDGE,bg='lightyellow')
         productFrame.place(x=10,y=10,height=575,width=550)
 
         #title
         title=Label(productFrame,text='Product Details',font=('goudy old style',25,'bold'),bg='#0f4d7d',fg='white').pack(side=TOP,fill=X)
 
         #labels 
-        pid=Label(productFrame,text='Product Id',font=('goudy old style',20),bg='white').place(x=10,y=50,height=40,width=200)
-        pname=Label(productFrame,text='Product Name',font=('goudy old style',20),bg='white').place(x=10,y=100,height=40,width=200)
-        category=Label(productFrame,text='Category',font=('goudy old style',20),bg='white').place(x=10,y=150,height=40,width=200)
-        expiry_date=Label(productFrame,text='Expiry Date',font=('goudy old style',20),bg='white').place(x=10,y=200,height=40,width=200)
-        qty=Label(productFrame,text='Quantity',font=('goudy old style',20),bg='white').place(x=10,y=250,height=40,width=200)
-        price=Label(productFrame,text='Price',font=('goudy old style',20),bg='white').place(x=10,y=300,height=40,width=200)
-        set_limit=Label(productFrame,text='Set Limit',font=('goudy old style',20),bg='white').place(x=10,y=350,height=40,width=200)
-        supplier=Label(productFrame,text='Supplier',font=('goudy old style',20),bg='white').place(x=10,y=400,height=40,width=200)
-        status=Label(productFrame,text='Status',font=('goudy old style',20),bg='white').place(x=10,y=450,height=40,width=200)
+        pid=Label(productFrame,text='Product Id',font=('goudy old style',20),bg='lightyellow').place(x=10,y=50,height=40,width=200)
+        pname=Label(productFrame,text='Product Name',font=('goudy old style',20),bg='lightyellow').place(x=10,y=100,height=40,width=200)
+        category=Label(productFrame,text='Category',font=('goudy old style',20),bg='lightyellow').place(x=10,y=150,height=40,width=200)
+        expiry_date=Label(productFrame,text='Expiry Date',font=('goudy old style',20),bg='lightyellow').place(x=10,y=200,height=40,width=200)
+        qty=Label(productFrame,text='Quantity',font=('goudy old style',20),bg='lightyellow').place(x=10,y=250,height=40,width=200)
+        price=Label(productFrame,text='Price',font=('goudy old style',20),bg='lightyellow').place(x=10,y=300,height=40,width=200)
+        set_limit=Label(productFrame,text='Set Limit',font=('goudy old style',20),bg='lightyellow').place(x=10,y=350,height=40,width=200)
+        supplier=Label(productFrame,text='Supplier',font=('goudy old style',20),bg='lightyellow').place(x=10,y=400,height=40,width=200)
+        status=Label(productFrame,text='Status',font=('goudy old style',20),bg='lightyellow').place(x=10,y=450,height=40,width=200)
 
         #entry fields and combo box 
-        txt_pid=Entry(productFrame,textvariable=self.var_pid,bg='lightyellow',font=('goudy old style',20)).place(x=220,y=50,height=40,width=285)
-        txt_pname=Entry(productFrame,textvariable=self.var_pname,bg='lightyellow',font=('goudy old style',20)).place(x=220,y=100,height=40,width=285)       
+        txt_pid=Entry(productFrame,textvariable=self.var_pid,bg='white',font=('goudy old style',20)).place(x=220,y=50,height=40,width=285)
+        txt_pname=Entry(productFrame,textvariable=self.var_pname,bg='white',font=('goudy old style',20)).place(x=220,y=100,height=40,width=285)       
         cmb_category=ttk.Combobox(productFrame,textvariable=self.var_category,values=self.cat_list,cursor='hand2',state='readonly',justify=CENTER,font=('goudy old style',20))
         cmb_category.place(x=220,y=150,height=40,width=285)
         cmb_category.current(0)
-        txt_expiry=DateEntry(productFrame,textvariable=self.var_expiry,state='readonly',date_pattern='dd-mm-yyyy',bg='lightyellow',font=('goudy old style',20)).place(x=220,y=200,height=40,width=285)
-        txt_qty=Entry(productFrame,textvariable=self.var_qty,bg='lightyellow',font=('goudy old style',20)).place(x=220,y=250,height=40,width=285)
-        txt_price=Entry(productFrame,textvariable=self.var_price,bg='lightyellow',font=('goudy old style',20)).place(x=220,y=300,height=40,width=285)       
-        txt_set_limit=Entry(productFrame,textvariable=self.var_limit,bg='lightyellow',font=('goudy old style',20)).place(x=220,y=350,height=40,width=285)
+        txt_expiry=DateEntry(productFrame,textvariable=self.var_expiry,state='readonly',date_pattern='dd-mm-yyyy',bg='white',font=('goudy old style',20)).place(x=220,y=200,height=40,width=285)
+        txt_qty=Entry(productFrame,textvariable=self.var_qty,bg='white',font=('goudy old style',20)).place(x=220,y=250,height=40,width=285)
+        txt_price=Entry(productFrame,textvariable=self.var_price,bg='white',font=('goudy old style',20)).place(x=220,y=300,height=40,width=285)       
+        txt_set_limit=Entry(productFrame,textvariable=self.var_limit,bg='white',font=('goudy old style',20)).place(x=220,y=350,height=40,width=285)
         cmb_supplier=ttk.Combobox(productFrame,textvariable=self.var_supplier,values=self.sup_list,cursor='hand2',state='readonly',justify=CENTER,font=('goudy old style',20))
         cmb_supplier.place(x=220,y=400,height=40,width=285)
         cmb_supplier.current(0)
@@ -69,7 +69,7 @@ class productClass:
         btn_clear=Button(productFrame,text='Clear',command=self.clear,font=('goudy old style',20,'bold'),bg='grey',fg='white',cursor='hand2').place(x=415,y=510,width=125,height=45)
 
         #search frame
-        SearchFrame=LabelFrame(self.root,text="search Product",font=('goudy old style',12,'bold'),bd=2.5,relief=RIDGE,bg="white")
+        SearchFrame=LabelFrame(self.root,text="Search Product",font=('goudy old style',12,'bold'),bd=2.5,relief=RIDGE,bg="lightyellow")
         SearchFrame.place(x=575,y=10,width=650,height=100)
 
         #options
@@ -77,7 +77,7 @@ class productClass:
         cmb_search.place(x=10,y=10,width=200,height=50)
         cmb_search.current(0)
 
-        txt_search=Entry(SearchFrame,textvariable=self.var_searchText,font=('goudy old style',20),bg='lightyellow').place(x=220,y=10,width=200,height=50)
+        txt_search=Entry(SearchFrame,textvariable=self.var_searchText,font=('goudy old style',20),bg='white').place(x=220,y=10,width=200,height=50)
         btn_search=Button(SearchFrame,text='Search',command=self.search,font=('goudy old style',20),bg='#4caf50',fg='white',cursor='hand2').place(x=430,y=10,width=200,height=50)
 
         #view table for product
@@ -183,20 +183,24 @@ class productClass:
         except Exception as ex:
             messagebox.showerror('Error',f'Error due to: {str(ex)}',parent=self.root)
 
-    def get_data(self,ev):
-        f=self.ProductTable.focus()
-        content= (self.ProductTable.item(f))
-        row=content['values']
-        #print(row)
-        self.var_pid.set(row[0])
-        self.var_pname.set(row[1])
-        self.var_category.set(row[2])
-        self.var_qty.set(row[3])
-        self.var_limit.set(row[4])
-        self.var_price.set(row[5])
-        self.var_supplier.set(row[6])
-        self.var_expiry.set(row[7])
-        self.var_status.set(row[8])
+    def get_data(self, ev):
+        f = self.ProductTable.focus()
+        content = self.ProductTable.item(f)
+        row = content['values']
+        print("Row:", row)  # Add this line for debugging
+        if row:  # Check if row is not empty
+            self.var_pid.set(row[0])
+            self.var_pname.set(row[1])
+            self.var_category.set(row[2])
+            self.var_qty.set(row[3])
+            self.var_limit.set(row[4])
+            self.var_price.set(row[5])
+            self.var_supplier.set(row[6])
+            self.var_expiry.set(row[7])
+            self.var_status.set(row[8])
+        else:
+            print("No data found for the selected row")
+
         
     def update(self):
         con=sqlite3.connect(database=r'IMS.db')

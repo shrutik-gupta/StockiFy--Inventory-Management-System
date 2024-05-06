@@ -8,7 +8,7 @@ class salesClass:
         self.root=root
         self.root.geometry("1250x600+260+140")
         self.root.title("Inventory Management System | Developed by SKAD")
-        self.root.config(bg="white")
+        self.root.config(bg="lightyellow")
         self.root.focus_force()
 
         self.bill_list=[]
@@ -17,15 +17,15 @@ class salesClass:
         #title
         lbl_title=Label(self.root,text='View Customers Bill',font=('goudy old style',30,'bold'),bg='#184a45',fg='white',bd=3,relief=RIDGE).pack(side=TOP,fill=X,padx=15,pady=20)
 
-        lbl_invoice=Label(self.root,text='Invoice No',font=('goudy old style',20,'bold'),bg='white',anchor=E).place(x=10,y=100,height=50,width=150)
-        txt_invoice=Entry(self.root,textvariable=self.var_invoice,font=('goudy old style',20,'bold'),bg='lightyellow').place(x=170,y=100,height=50,width=250)
+        lbl_invoice=Label(self.root,text='Invoice No',font=('goudy old style',20,'bold'),bg='lightyellow',anchor=E).place(x=10,y=100,height=50,width=150)
+        txt_invoice=Entry(self.root,textvariable=self.var_invoice,font=('goudy old style',20,'bold'),bg='white').place(x=170,y=100,height=50,width=450)
 
-        btn_serach=Button(self.root,text='Search',command=self.serach,font=('goudy old style',20,'bold'),bg='#2196f3',fg='white',cursor='hand2').place(x=430,y=100,height=50,width=175)
-        btn_clear=Button(self.root,text='Clear',command=self.clear,font=('goudy old style',20,'bold'),bg='lightgrey',fg='black',cursor='hand2').place(x=615,y=100,height=50,width=175)
+        btn_serach=Button(self.root,text='Search',command=self.serach,font=('goudy old style',20,'bold'),bg='#2196f3',fg='white',cursor='hand2').place(x=860,y=100,height=50,width=175)
+        btn_clear=Button(self.root,text='Clear',command=self.clear,font=('goudy old style',20,'bold'),bg='lightgrey',fg='black',cursor='hand2').place(x=1045,y=100,height=50,width=175)
 
         #bill list
         salesFrame=Frame(self.root,bd=2.5,relief=RIDGE)
-        salesFrame.place(x=20,y=160,width=300,height=420)
+        salesFrame.place(x=500,y=160,width=250,height=420)
 
         scrolly=Scrollbar(salesFrame,orient=VERTICAL)
         self.Sales_list=Listbox(salesFrame,font=('goudy old style',15),bg='white',yscrollcommand=scrolly)
@@ -36,23 +36,24 @@ class salesClass:
 
         #bill area
         billFrame=Frame(self.root,bd=2.5,relief=RIDGE)
-        billFrame.place(x=330,y=160,width=460,height=420)
+        billFrame.place(x=760,y=160,width=460,height=420)
 
         lbl_bill_area_title=Label(billFrame,text='Customers Bill Area',font=('goudy old style',20),bg='orange').pack(side=TOP,fill=X)
 
 
         scrolly2=Scrollbar(billFrame,orient=VERTICAL)
-        self.bill_area=Text(billFrame,font=('goudy old style',13),bg='lightyellow',yscrollcommand=scrolly2)
+        self.bill_area=Text(billFrame,font=('goudy old style',13),bg='white',yscrollcommand=scrolly2)
         scrolly2.pack(side=RIGHT,fill=Y)
         scrolly2.config(command=self.bill_area.yview)
         self.bill_area.pack(fill=BOTH,expand=1)
 
-        self.Sales_logo=Image.open("Images/sales.jpg")
-        self.Sales_logo=self.Sales_logo.resize((440,400),Image.Resampling.LANCZOS)
+        self.Sales_logo=Image.open("Images/invoice.png")
+        self.Sales_logo=self.Sales_logo.resize((400,400),Image.LANCZOS)
+        self.Sales_logo = self.Sales_logo.convert("RGBA")
         self.Sales_logo=ImageTk.PhotoImage(self.Sales_logo)
 
         lbl_image=Label(self.root,image=self.Sales_logo)
-        lbl_image.place(x=800,y=145)
+        lbl_image.place(x=50,y=165)
 
         self.show()
         

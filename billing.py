@@ -88,37 +88,8 @@ class BillingClass:
         Calc_cart_Frame=Frame(self.root,bd=2.5,relief=RIDGE,bg='white')
         Calc_cart_Frame.place(x=510,y=210,width=500,height=400)
 
-        self.var_calc_input=StringVar()
-        Calc_Frame=Frame(Calc_cart_Frame,bd=2.5,relief=RIDGE,bg='white')
-        Calc_Frame.place(x=5,y=5,width=485,height=190)
-
-        txt_cal_input=Entry(Calc_Frame,textvariable=self.var_calc_input,font=('goudy old style',25,'bold'),bd=5,relief=GROOVE,state='readonly',justify=RIGHT).place(x=0,y=0,height=90,width=255)
-        
-        btn_7=Button(Calc_Frame,text='7',font=('goudy old style',20,'bold'),command=lambda:self.get_input(7),cursor='hand2',bg='lightgrey').place(x=255,y=0,height=45,width=75)
-        btn_8=Button(Calc_Frame,text='8',font=('goudy old style',20,'bold'),command=lambda:self.get_input(8),cursor='hand2',bg='lightgrey').place(x=330,y=0,height=45,width=75)
-        btn_9=Button(Calc_Frame,text='9',font=('goudy old style',20,'bold'),command=lambda:self.get_input(9),cursor='hand2',bg='lightgrey').place(x=405,y=0,height=45,width=75)
-        
-        btn_4=Button(Calc_Frame,text='4',font=('goudy old style',20,'bold'),command=lambda:self.get_input(4),cursor='hand2',bg='lightgrey').place(x=255,y=45,height=45,width=75)
-        btn_5=Button(Calc_Frame,text='5',font=('goudy old style',20,'bold'),command=lambda:self.get_input(5),cursor='hand2',bg='lightgrey').place(x=330,y=45,height=45,width=75)
-        btn_6=Button(Calc_Frame,text='6',font=('goudy old style',20,'bold'),command=lambda:self.get_input(6),cursor='hand2',bg='lightgrey').place(x=405,y=45,height=45,width=75)
-        
-        btn_1=Button(Calc_Frame,text='1',font=('goudy old style',20,'bold'),command=lambda:self.get_input(1),cursor='hand2',bg='lightgrey').place(x=255,y=90,height=45,width=75)
-        btn_2=Button(Calc_Frame,text='2',font=('goudy old style',20,'bold'),command=lambda:self.get_input(2),cursor='hand2',bg='lightgrey').place(x=330,y=90,height=45,width=75)
-        btn_3=Button(Calc_Frame,text='3',font=('goudy old style',20,'bold'),command=lambda:self.get_input(3),cursor='hand2',bg='lightgrey').place(x=405,y=90,height=45,width=75)
-        
-        btn_00=Button(Calc_Frame,text='00',font=('goudy old style',20,'bold'),command=lambda:self.get_input('00'),cursor='hand2',bg='lightgrey').place(x=255,y=135,height=45,width=75)
-        btn_0=Button(Calc_Frame,text='0',font=('goudy old style',20,'bold'),command=lambda:self.get_input(0),cursor='hand2',bg='lightgrey').place(x=330,y=135,height=45,width=75)
-        btn_dot=Button(Calc_Frame,text='.',font=('goudy old style',20,'bold'),command=lambda:self.get_input('.'),cursor='hand2',bg='lightgrey').place(x=405,y=135,height=45,width=75)
-
-        btn_clear=Button(Calc_Frame,text='C',font=('goudy old style',20,'bold'),command=self.clear_cal,cursor='hand2',bg='lightgrey').place(x=0,y=90,height=45,width=85)
-        btn_minus=Button(Calc_Frame,text='-',font=('goudy old style',20,'bold'),command=lambda:self.get_input('-'),cursor='hand2',bg='lightgrey').place(x=85,y=90,height=45,width=85)
-        btn_plus=Button(Calc_Frame,text='+',font=('goudy old style',20,'bold'),command=lambda:self.get_input('+'),cursor='hand2',bg='lightgrey').place(x=170,y=90,height=45,width=85)
-        btn_equal=Button(Calc_Frame,text='=',font=('goudy old style',20,'bold'),command=self.perform_cal,cursor='hand2',bg='lightgrey').place(x=0,y=135,height=45,width=85)
-        btn_divide=Button(Calc_Frame,text='/',font=('goudy old style',20,'bold'),command=lambda:self.get_input('/'),cursor='hand2',bg='lightgrey').place(x=85,y=135,height=45,width=85)
-        btn_multiply=Button(Calc_Frame,text='x',font=('goudy old style',20,'bold'),command=lambda:self.get_input('*'),cursor='hand2',bg='lightgrey').place(x=170,y=135,height=45,width=85)
-        
         Cart_Frame=Frame(Calc_cart_Frame,bd=2.5,relief=RIDGE)
-        Cart_Frame.place(x=5,y=200,width=485,height=190)
+        Cart_Frame.place(x=5,y=5,width=485,height=380)
         self.Cart_Title=Label(Cart_Frame,text='Cart \t Total Products : [0]',font=('goudy old style',15,'bold'))
         self.Cart_Title.pack(side=TOP,fill=X)
         scrolly2=Scrollbar(Cart_Frame,orient=VERTICAL)
@@ -262,15 +233,20 @@ class BillingClass:
             messagebox.showerror('Error',f'Error due to: {str(ex)}',parent=self.root)
     
     def get_data(self,ev):
-        f=self.ProductTable.focus()
-        content= (self.ProductTable.item(f))
-        row=content['values']
-        self.var_pid.set(row[0])
-        self.var_productname.set(row[1])
-        self.var_price_per_qty.set(row[2])  
-        self.lbl_inStock.config(text=f'In Stock [{str(row[3])}]') 
-        self.var_stock.set(row[3])
-        self.var_qty.set('1') 
+        f = self.ProductTable.focus()
+        content = self.ProductTable.item(f)
+        row = content.get('values', [])
+        print("Row:", row)  # Add this line to check the value of row
+        if row:
+            self.var_pid.set(row[0])
+            self.var_productname.set(row[1])
+            self.var_price_per_qty.set(row[2])  
+            self.lbl_inStock.config(text=f'In Stock [{str(row[3])}]') 
+            self.var_stock.set(row[3])
+            self.var_qty.set('1') 
+        else:
+            print("No data available for the selected row.")
+
     
     def get_data_cart(self,ev):
         f=self.CartTable.focus()
